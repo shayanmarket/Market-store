@@ -1,18 +1,1112 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>MARKET | مارکت</title>
+  <meta name="description" content="MARKET | فروشگاه آنلاین با بهترین قیمت">
 
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <h1>MARKET | مارکت</h1>
-  <p>فروشگاه آنلاین شما در حال آماده‌سازی است...</p>
+  <!-- HEADER -->
+  <div class="topbar">
+
+    <header class="header">
+
+      <a href="index.html" class="logo">
+        MARKET <span>مارکت</span>
+      </a>
+
+      <div class="search">
+        <input
+          id="searchInput"
+          type="search"
+          placeholder="جستجوی محصول، برند یا دسته‌بندی..."
+        >
+
+        <button onclick="searchProducts()">
+          جستجو
+        </button>
+      </div>
+
+      <div class="header-actions">
+
+        <button class="action-btn" onclick="openLogin()">
+          👤 ورود / ثبت‌نام
+        </button>
+
+        <button class="action-btn" onclick="openCart()">
+          🛒 سبد
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+
+      </div>
+
+    </header>
+
+  </div>
+
+
+  <!-- NAVIGATION -->
+
+  <nav>
+
+    <div class="nav-content">
+
+      <a href="#categories" class="categories-btn">
+        ☰ دسته‌بندی‌ها
+      </a>
+
+      <a href="index.html" class="nav-link">
+        خانه
+      </a>
+
+      <a href="#special" class="nav-link">
+        پیشنهاد ویژه
+      </a>
+
+      <a href="#products" class="nav-link">
+        محصولات
+      </a>
+
+      <a href="#features" class="nav-link">
+        چرا MARKET؟
+      </a>
+
+      <a href="#contact" class="nav-link">
+        تماس با ما
+      </a>
+
+    </div>
+
+  </nav>
+
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="hero-box">
+
+      <div class="hero-content">
+
+        <span class="hero-badge">
+          🔥 پیشنهاد امروز MARKET
+        </span>
+
+        <h1>
+          خرید آنلاین، سریع، مطمئن و با بهترین قیمت
+        </h1>
+
+        <p>
+          محصولات مورد نیازت را راحت پیدا کن،
+          انتخاب کن و با چند کلیک سفارش بده.
+        </p>
+
+        <a href="#products" class="primary-btn">
+          مشاهده محصولات ←
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CATEGORIES -->
+
+  <section class="container" id="categories">
+
+    <div class="section-title">
+
+      <h2>
+        دسته‌بندی محصولات
+      </h2>
+
+      <a href="#products" class="view-all">
+        مشاهده همه ←
+      </a>
+
+    </div>
+
+
+    <div class="categories">
+
+      <div class="category" onclick="filterCategory('پوشاک')">
+
+        <div class="category-icon">
+          👕
+        </div>
+
+        <strong>
+          پوشاک
+        </strong>
+
+      </div>
+
+
+      <div class="category" onclick="filterCategory('کفش')">
+
+        <div class="category-icon">
+          👟
+        </div>
+
+        <strong>
+          کفش
+        </strong>
+
+      </div>
+
+
+      <div class="category" onclick="filterCategory('دیجیتال')">
+
+        <div class="category-icon">
+          📱
+        </div>
+
+        <strong>
+          دیجیتال
+        </strong>
+
+      </div>
+
+
+      <div class="category" onclick="filterCategory('لوازم جانبی')">
+
+        <div class="category-icon">
+          🎧
+        </div>
+
+        <strong>
+          لوازم جانبی
+        </strong>
+
+      </div>
+
+
+      <div class="category" onclick="filterCategory('خانه')">
+
+        <div class="category-icon">
+          🏠
+        </div>
+
+        <strong>
+          خانه و آشپزخانه
+        </strong>
+
+      </div>
+
+
+      <div class="category" onclick="filterCategory('سایر')">
+
+        <div class="category-icon">
+          🎁
+        </div>
+
+        <strong>
+          سایر محصولات
+        </strong>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- SPECIAL OFFER -->
+
+  <section class="container" id="special">
+
+    <div class="offer">
+
+      <div>
+
+        <h2>
+          🔥 جشنواره تخفیف MARKET
+        </h2>
+
+        <p>
+          محصولات منتخب با تخفیف ویژه و محدود
+        </p>
+
+      </div>
+
+      <div class="discount">
+        تا 50٪ تخفیف
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- PRODUCTS -->
+
+  <section class="container" id="products">
+
+    <div class="section-title">
+
+      <h2>
+        محصولات پیشنهادی
+      </h2>
+
+      <button
+        class="view-all"
+        onclick="showAllProducts()"
+        style="border:0;background:none;cursor:pointer;"
+      >
+        مشاهده همه ←
+      </button>
+
+    </div>
+
+
+    <div class="products" id="productList">
+
+
+      <!-- PRODUCT 1 -->
+
+      <article
+        class="product"
+        data-name="کفش اسپرت مردانه"
+        data-category="کفش"
+      >
+
+        <div
+          class="product-image"
+          onclick="openProduct(1)"
+        >
+
+          👟
+
+          <span class="discount-badge">
+            20٪ تخفیف
+          </span>
+
+        </div>
+
+
+        <div class="product-info">
+
+          <p class="product-category">
+            کفش
+          </p>
+
+          <h3>
+            کفش اسپرت مردانه مدل جدید
+          </h3>
+
+
+          <div class="price-row">
+
+            <div>
+
+              <div class="price">
+                ۱,۴۹۰,۰۰۰ تومان
+              </div>
+
+              <div class="old-price">
+                ۱,۸۰۰,۰۰۰ تومان
+              </div>
+
+            </div>
+
+            <span class="stock">
+              موجود
+            </span>
+
+          </div>
+
+
+          <button
+            class="add-cart"
+            onclick="addProductToCart(1)"
+          >
+            🛒 افزودن به سبد خرید
+          </button>
+
+        </div>
+
+      </article>
+
+
+
+      <!-- PRODUCT 2 -->
+
+      <article
+        class="product"
+        data-name="هدفون بی سیم"
+        data-category="دیجیتال"
+      >
+
+        <div
+          class="product-image"
+          onclick="openProduct(2)"
+        >
+
+          🎧
+
+          <span class="discount-badge">
+            15٪ تخفیف
+          </span>
+
+        </div>
+
+
+        <div class="product-info">
+
+          <p class="product-category">
+            دیجیتال
+          </p>
+
+          <h3>
+            هدفون بی‌سیم با کیفیت بالا
+          </h3>
+
+
+          <div class="price-row">
+
+            <div>
+
+              <div class="price">
+                ۹۹۰,۰۰۰ تومان
+              </div>
+
+              <div class="old-price">
+                ۱,۱۷۰,۰۰۰ تومان
+              </div>
+
+            </div>
+
+            <span class="stock">
+              موجود
+            </span>
+
+          </div>
+
+
+          <button
+            class="add-cart"
+            onclick="addProductToCart(2)"
+          >
+            🛒 افزودن به سبد خرید
+          </button>
+
+        </div>
+
+      </article>
+
+
+
+      <!-- PRODUCT 3 -->
+
+      <article
+        class="product"
+        data-name="ساعت مچی اسپرت"
+        data-category="لوازم جانبی"
+      >
+
+        <div
+          class="product-image"
+          onclick="openProduct(3)"
+        >
+
+          ⌚
+
+          <span class="discount-badge">
+            30٪ تخفیف
+          </span>
+
+        </div>
+
+
+        <div class="product-info">
+
+          <p class="product-category">
+            لوازم جانبی
+          </p>
+
+          <h3>
+            ساعت مچی اسپرت و روزمره
+          </h3>
+
+
+          <div class="price-row">
+
+            <div>
+
+              <div class="price">
+                ۲,۱۰۰,۰۰۰ تومان
+              </div>
+
+              <div class="old-price">
+                ۳,۰۰۰,۰۰۰ تومان
+              </div>
+
+            </div>
+
+            <span class="stock">
+              موجود
+            </span>
+
+          </div>
+
+
+          <button
+            class="add-cart"
+            onclick="addProductToCart(3)"
+          >
+            🛒 افزودن به سبد خرید
+          </button>
+
+        </div>
+
+      </article>
+
+
+
+      <!-- PRODUCT 4 -->
+
+      <article
+        class="product"
+        data-name="کوله پشتی"
+        data-category="سایر"
+      >
+
+        <div
+          class="product-image"
+          onclick="openProduct(4)"
+        >
+
+          🎒
+
+          <span class="discount-badge">
+            10٪ تخفیف
+          </span>
+
+        </div>
+
+
+        <div class="product-info">
+
+          <p class="product-category">
+            سایر محصولات
+          </p>
+
+          <h3>
+            کوله‌پشتی مناسب استفاده روزانه
+          </h3>
+
+
+          <div class="price-row">
+
+            <div>
+
+              <div class="price">
+                ۱,۲۵۰,۰۰۰ تومان
+              </div>
+
+              <div class="old-price">
+                ۱,۴۰۰,۰۰۰ تومان
+              </div>
+
+            </div>
+
+            <span class="stock">
+              موجود
+            </span>
+
+          </div>
+
+
+          <button
+            class="add-cart"
+            onclick="addProductToCart(4)"
+          >
+            🛒 افزودن به سبد خرید
+          </button>
+
+        </div>
+
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <!-- FEATURES -->
+
+  <section class="container" id="features">
+
+    <div class="section-title">
+
+      <h2>
+        چرا MARKET؟
+      </h2>
+
+    </div>
+
+
+    <div class="features">
+
+
+      <div class="feature">
+
+        <div class="feature-icon">
+          🚚
+        </div>
+
+        <h3>
+          ارسال سریع
+        </h3>
+
+        <p>
+          ارسال سفارش در سریع‌ترین زمان ممکن
+        </p>
+
+      </div>
+
+
+      <div class="feature">
+
+        <div class="feature-icon">
+          💳
+        </div>
+
+        <h3>
+          پرداخت امن
+        </h3>
+
+        <p>
+          خرید مطمئن و امن برای کاربران
+        </p>
+
+      </div>
+
+
+      <div class="feature">
+
+        <div class="feature-icon">
+          💰
+        </div>
+
+        <h3>
+          بهترین قیمت
+        </h3>
+
+        <p>
+          قیمت مناسب و تخفیف‌های ویژه
+        </p>
+
+      </div>
+
+
+      <div class="feature">
+
+        <div class="feature-icon">
+          🎧
+        </div>
+
+        <h3>
+          پشتیبانی
+        </h3>
+
+        <p>
+          همراه شما قبل و بعد از خرید
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+
+  <footer id="contact">
+
+    <div class="footer-content">
+
+
+      <div>
+
+        <h3>
+          MARKET | مارکت
+        </h3>
+
+        <p>
+          MARKET یک فروشگاه آنلاین برای تجربه خرید سریع،
+          آسان و مطمئن است.
+        </p>
+
+      </div>
+
+
+      <div>
+
+        <h3>
+          دسترسی سریع
+        </h3>
+
+        <ul>
+
+          <li>
+            <a href="index.html">
+              خانه
+            </a>
+          </li>
+
+          <li>
+            <a href="#products">
+              محصولات
+            </a>
+          </li>
+
+          <li>
+            <a href="#special">
+              پیشنهادهای ویژه
+            </a>
+          </li>
+
+          <li>
+            <a href="#contact">
+              تماس با ما
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+
+      <div>
+
+        <h3>
+          پشتیبانی
+        </h3>
+
+        <ul>
+
+          <li>
+            پیگیری سفارش
+          </li>
+
+          <li>
+            سوالات متداول
+          </li>
+
+          <li>
+            قوانین و مقررات
+          </li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+      © 2026 MARKET — تمامی حقوق محفوظ است
+
+    </div>
+
+  </footer>
+
+
+
+  <!-- PRODUCT MODAL -->
+
+  <div
+    id="productModal"
+    class="modal"
+  >
+
+    <div class="modal-box">
+
+      <button
+        class="close-modal"
+        onclick="closeProduct()"
+      >
+        ×
+      </button>
+
+
+      <div class="product-detail">
+
+
+        <div
+          class="detail-image"
+          id="detailImage"
+        >
+          👟
+        </div>
+
+
+        <div class="detail-info">
+
+          <span
+            class="detail-category"
+            id="detailCategory"
+          >
+            کفش
+          </span>
+
+
+          <h2 id="detailName">
+            کفش اسپرت مردانه مدل جدید
+          </h2>
+
+
+          <div
+            class="detail-stock"
+            id="detailStock"
+          >
+            🟢 موجود
+          </div>
+
+
+          <div class="detail-price">
+
+            <strong id="detailPrice">
+              ۱,۴۹۰,۰۰۰ تومان
+            </strong>
+
+            <del id="detailOldPrice">
+              ۱,۸۰۰,۰۰۰ تومان
+            </del>
+
+          </div>
+
+
+          <p
+            class="detail-description"
+            id="detailDescription"
+          >
+            یک محصول باکیفیت و مناسب استفاده روزمره.
+            طراحی زیبا، راحت و مناسب استفاده طولانی مدت.
+          </p>
+
+
+          <div class="quantity-box">
+
+            <span>
+              تعداد:
+            </span>
+
+            <button onclick="changeQuantity(-1)">
+              −
+            </button>
+
+            <strong id="quantity">
+              1
+            </strong>
+
+            <button onclick="changeQuantity(1)">
+              +
+            </button>
+
+          </div>
+
+
+          <button
+            class="detail-cart"
+            onclick="addToCart()"
+          >
+            🛒 افزودن به سبد خرید
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- CART MODAL -->
+
+  <div
+    id="cartModal"
+    class="modal"
+  >
+
+    <div class="cart-box">
+
+      <button
+        class="close-modal"
+        onclick="closeCart()"
+      >
+        ×
+      </button>
+
+
+      <h2>
+        🛒 سبد خرید
+      </h2>
+
+
+      <div id="cartItems">
+      </div>
+
+
+      <div class="cart-total">
+
+        مبلغ نهایی:
+
+        <strong id="cartTotal">
+          ۰ تومان
+        </strong>
+
+      </div>
+
+
+      <button
+        class="checkout-btn"
+        onclick="openCheckout()"
+      >
+        ادامه و تکمیل خرید
+      </button>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- LOGIN MODAL -->
+
+  <div
+    id="loginModal"
+    class="modal"
+  >
+
+    <div class="login-box">
+
+      <button
+        class="close-modal"
+        onclick="closeLogin()"
+      >
+        ×
+      </button>
+
+
+      <h2>
+        👤 ورود / ثبت‌نام
+      </h2>
+
+
+      <p>
+        شماره موبایل خود را وارد کنید
+      </p>
+
+
+      <input
+        id="phoneInput"
+        class="login-input"
+        type="tel"
+        placeholder="مثلاً 09123456789"
+        maxlength="11"
+      >
+
+
+      <button
+        class="primary-btn login-btn"
+        onclick="sendOTP()"
+      >
+        دریافت کد تأیید
+      </button>
+
+
+      <div
+        id="otpArea"
+        style="display:none;"
+      >
+
+        <input
+          id="otpInput"
+          class="login-input"
+          type="text"
+          placeholder="کد تأیید"
+          maxlength="6"
+        >
+
+        <button
+          class="primary-btn login-btn"
+          onclick="verifyOTP()"
+        >
+          تأیید شماره
+        </button>
+
+      </div>
+
+
+      <p
+        id="loginMessage"
+        class="login-message"
+      >
+      </p>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- CHECKOUT MODAL -->
+
+  <div
+    id="checkoutModal"
+    class="modal"
+  >
+
+    <div class="checkout-box">
+
+      <button
+        class="close-modal"
+        onclick="closeCheckout()"
+      >
+        ×
+      </button>
+
+
+      <h2>
+        🧾 تکمیل خرید
+      </h2>
+
+
+      <div class="checkout-form">
+
+        <label>
+          نام و نام خانوادگی
+        </label>
+
+        <input
+          id="customerName"
+          type="text"
+          placeholder="نام گیرنده"
+        >
+
+
+        <label>
+          شماره موبایل
+        </label>
+
+        <input
+          id="customerPhone"
+          type="tel"
+          placeholder="شماره موبایل"
+        >
+
+
+        <label>
+          استان
+        </label>
+
+        <select id="province">
+
+          <option value="">
+            انتخاب استان
+          </option>
+
+          <option>
+            تهران
+          </option>
+
+          <option>
+            اصفهان
+          </option>
+
+          <option>
+            فارس
+          </option>
+
+          <option>
+            خراسان رضوی
+          </option>
+
+          <option>
+            آذربایجان شرقی
+          </option>
+
+        </select>
+
+
+        <label>
+          شهر
+        </label>
+
+        <input
+          id="city"
+          type="text"
+          placeholder="شهر"
+        >
+
+
+        <label>
+          آدرس کامل
+        </label>
+
+        <textarea
+          id="address"
+          placeholder="آدرس کامل گیرنده"
+        ></textarea>
+
+
+        <label>
+          پلاک و واحد
+        </label>
+
+        <input
+          id="unit"
+          type="text"
+          placeholder="مثلاً پلاک ۱۲، واحد ۳"
+        >
+
+
+        <label>
+          کد پستی
+        </label>
+
+        <input
+          id="postalCode"
+          type="text"
+          placeholder="کد پستی ۱۰ رقمی"
+          maxlength="10"
+        >
+
+
+        <button
+          class="checkout-btn"
+          onclick="submitOrder()"
+        >
+          ثبت سفارش
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- JAVASCRIPT -->
 
   <script src="app.js"></script>
+
 </body>
-</html>
+
+    </html>
